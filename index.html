@@ -1,38 +1,51 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="githubViewer">
 
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <link rel="stylesheet" href="style.css" />
   <script src="script.js"></script>
-
 </head>
 
 <body>
   <div ng-controller="MainController">
     <h1>{{ message }}</h1>
-    <div>
-      <div>
-        First name: {{ person.firstName }}
-      </div>
-      <div>
-        Last name: {{ person.lastName }}
-      </div>
-      <div>
-        <img ng-src="{{person.imageSrc}}" title="{{ person.firstName }} {{ person.lastName }}">
-      </div>
-    </div>
-  </div>
-  
-  
-  <div ng-controller="PersonController">
-    <h2>User</h2>
-    <div>{{user.firstName}}</div>
-  </div>
+    <div>{{error}}</div>
 
-  <hr>
-  <input type="text" ng-model="yourName" placeholder="Enter a name here">
-  <h1>Hello {{yourName}}!</h1>
+    <p>{{ username }}</p>
+
+    <form name="searchUser" ng-submit="search(username)">
+      <input type="search" placeholder="Username to find" ng-model="username" />
+      <input type="submit" value="Search" />
+    </form>
+
+    <div class="user">
+      <h2>{{ user.name }}</h2>
+      <p>{{ user.location }}</p>
+      <img ng-src="https://www.gravatar.com/avatar/{{user.gravatar_id}}" title="{{ user.name }}" />
+    </div>
+
+    <div class="repos">
+      <table>
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Starred</th>
+          <th>Language</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="repo in repos">
+            <td>{{ repo.name }}</td>
+            <td>{{ repo.stargazers_count | number }}</td>
+            <td>{{ repo.language }}</td>
+          </tr>
+        </tbody>
+        
+      </table>
+    </div>
+
+  </div>
 </body>
 
 </html>

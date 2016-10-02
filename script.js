@@ -1,24 +1,31 @@
-var app = angular.module('app', []);
 
+(function() {
 
-var MainController = function($scope) {
+  var app = angular.module('githubViewer', []);
 
-  var person = {
-    firstName: "Scott",
-    lastName: "Allen",
-    imageSrc: "https://unsplash.it/100/100?image=22"
-  }
+  var MainController = function($scope, $http) {
 
-  $scope.message = "Hello, Angular!";
-  $scope.person = person;
-};
+    var onUserComplete = function(response) {
+      $scope.user = response.data;
+      $http.get($scope.user.repos_url).then(onRepos, onError);
+    };
 
-var PersonCtrl = function($scope, $http) {
-  var promise = $http.get("user-1783.json");
-  promise.then(function(response){
-    $scope.user = response.data;
-  })
-}
+    var onRepos = function(response) {
+      $scope.repos = response.data;
+    };
 
-app.controller('MainController', MainController);
-app.controller('PersonController', PersonCtrl);
+    var onError = function(reason) {
+      $scope.error = "Could not fetch user";
+    };
+
+    $scope.search = function(username) {
+      $http.get("https://api.github.com/users/" + username)
+        .then(onUserComplete, onError);
+    };
+
+    $scope.username = "angular";
+    $scope.message = "GitHub Viewer";
+  };
+
+  app.controller('MainController', ["$scope", "$http", MainController]);
+})();
