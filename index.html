@@ -1,18 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 
-  <head>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="script.js"></script>
-  </head>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
 
-  <body>
-    <h1>Hello Plunker!</h1>
-    <div ng-app>
-    {{ 843 / 42 }}  
+</head>
+
+<body>
+  <div ng-controller="MainController">
+    <h1>{{ message }}</h1>
+    <div>
+      <div>
+        First name: {{ person.firstName }}
+      </div>
+      <div>
+        Last name: {{ person.lastName }}
+      </div>
+      <div>
+        <img ng-src="{{person.imageSrc}}" title="{{ person.firstName }} {{ person.lastName }}">
+      </div>
     </div>
-    
-  </body>
+  </div>
+  
+  
+  <div ng-controller="PersonController">
+    <h2>User</h2>
+    <div>{{user.firstName}}</div>
+  </div>
+
+  <hr>
+  <input type="text" ng-model="yourName" placeholder="Enter a name here">
+  <h1>Hello {{yourName}}!</h1>
+</body>
 
 </html>
