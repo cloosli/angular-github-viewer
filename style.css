@@ -11,5 +11,27 @@ img {
 }
 
 h1 {
-  color:blue;
+  color:#4078c0;
+}
+.container {
+  width: 80%;
+  margin: auto;
+}
+.user p {
+  margin: 0;
+}
+
+.user .gravatar {
+  margin: 20px 10px;
+}
+
+.avatar {
+  display: block;
+}
+.user .left,
+.user .right {
+  float:left;
+}
+.clear {
+  clear: both;
 }

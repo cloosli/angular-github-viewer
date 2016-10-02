@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <div ng-controller="MainController">
+  <div ng-controller="MainController" class="container">
     <h1>{{ message }}</h1>
     <div>{{error}}</div>
 
@@ -20,9 +20,13 @@
     </form>
 
     <div class="user">
-      <h2>{{ user.name }}</h2>
-      <p>{{ user.location }}</p>
-      <img ng-src="https://www.gravatar.com/avatar/{{user.gravatar_id}}" title="{{ user.name }}" />
+      <img class="left gravatar" ng-src="https://www.gravatar.com/avatar/{{user.gravatar_id}}" title="{{ user.name }}" />
+      <div class="right">
+        <h2>{{ user.name }}</h2>
+        <p>{{ user.location }}</p>  
+      </div>
+      <div class="clear"></div>
+      <img class="avatar" ng-src="{{ user.avatar_url }}" title="{{ user.name }}" />
     </div>
 
     <div class="repos">
@@ -35,7 +39,7 @@
         </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="repo in repos | orderBy:'-stargazers_count'">
+          <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
             <td>{{ repo.name }}</td>
             <td>{{ repo.stargazers_count | number }}</td>
             <td>{{ repo.language }}</td>
