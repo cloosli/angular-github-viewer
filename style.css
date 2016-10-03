@@ -6,17 +6,23 @@ body {
   padding: 0;
 }
 
+.clear {
+  clear: both;
+}
+
 img {
   max-width: 100%;
 }
 
 h1 {
-  color:#4078c0;
+  color: #4078c0;
 }
+
 .container {
   width: 80%;
   margin: auto;
 }
+
 .user p {
   margin: 0;
 }
@@ -28,10 +34,12 @@ h1 {
 .avatar {
   display: block;
 }
+
 .user .left,
 .user .right {
-  float:left;
+  float: left;
 }
-.clear {
-  clear: both;
+
+.repos {
+  margin: 30px 0;
 }

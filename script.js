@@ -6,11 +6,13 @@
   var MainController = function($scope, $http) {
 
     var onUserComplete = function(response) {
+      console.log(response.config.url);
       $scope.user = response.data;
       $http.get($scope.user.repos_url).then(onRepos, onError);
     };
 
     var onRepos = function(response) {
+      console.log(response.config.url);
       $scope.repos = response.data;
     };
 
@@ -19,6 +21,7 @@
     };
 
     $scope.search = function(username) {
+      $scope.error = "";
       $http.get("https://api.github.com/users/" + username)
         .then(onUserComplete, onError);
     };
