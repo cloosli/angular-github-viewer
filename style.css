@@ -51,21 +51,27 @@ h1 {
 .reposTable {
   width: 100%;
 }
+
 .reposTable th {
   text-align: left;
 }
-.reposTable th, td {
+
+.reposTable th,
+td {
   padding: 10px;
 }
 
 .reposTable tr:nth-child(even) {
-    background-color: #eee;
+  background-color: #eee;
+}
+table.reposTable tr:hover {
+  background-color: #ddd;
 }
 .reposTable tr:nth-child(odd) {
-    background-color: #fff;
-}
-.reposTable th {
-    color: white;
-    background-color: #4078c0;
+  background-color: #fff;
 }
 
+.reposTable th {
+  color: white;
+  background-color: #4078c0;
+}
