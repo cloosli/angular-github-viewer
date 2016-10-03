@@ -1,0 +1,51 @@
+<div class="user">
+  <div>
+    <a href="#/main">Back to search</a>
+  </div>
+
+
+  {{ error }}
+  <img class="left gravatar" ng-src="https://www.gravatar.com/avatar/{{user.gravatar_id}}" title="{{ user.name }}" />
+  <div class="right">
+    <h2>{{ user.name }}</h2>
+    <p>{{ user.location }}</p>
+  </div>
+  <div class="clear"></div>
+  <img class="avatar" ng-src="{{ user.avatar_url }}" title="{{ user.name }}" />
+</div>
+
+<div class="repos" ng-show="repos">
+  Order:
+  <select ng-model="repoSortOrder">
+    <option value="+name">Name</option>
+    <option value="-stargazers_count">Stars</option>
+    <option value="+language">Language</option>
+    <option value="-created_at">Created</option>
+  </select>
+  <table class="reposTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Starred</th>
+        <th>Language</th>
+        <th>Created</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
+        <td>
+          <a href="#/repo/{{ user.login }}/{{ repo.name }}">
+          {{ repo.name }}
+          </a></td>
+        <td style="text-align:right;">{{ repo.stargazers_count | number }}</td>
+        <td>{{ repo.language }}</td>
+        <td>{{ repo.created_at | date }}</td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div>
+    <a href="#/main">Back to search</a>
+  </div>
+</div>
