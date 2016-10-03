@@ -8,7 +8,6 @@
       $anchorScroll, $location) {
 
     var onUserComplete = function(data) {
-      console.log(response.config.url);
       $scope.user = data;
       github.getRepos($scope.user).then(onRepos, onError);
     };
