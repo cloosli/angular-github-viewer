@@ -2,6 +2,12 @@
 
 html,
 body {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+body {
   margin: 0;
   padding: 0;
 }
@@ -23,25 +29,31 @@ h1 {
   margin: auto;
 }
 
+form input {
+  font-size: 1.6em;
+  padding: 10px;
+}
+
+form input[type="submit"] {
+  font-size: 20px;
+}
+
 .user p {
   margin: 0;
 }
 
 .user .gravatar {
-  margin: 20px 0;
+  float: left;
 }
 
 .avatar {
   display: block;
-}
-
-.user .left,
-.user .right {
-  float: left;
+  margin: 20px auto;
 }
 
 .user .right {
-  margin-left: 20px;
+  display: block;
+  margin: 20px 100px;
 }
 
 .repos {
@@ -64,9 +76,11 @@ td {
 .reposTable tr:nth-child(even) {
   background-color: #eee;
 }
+
 table.reposTable tr:hover {
   background-color: #ddd;
 }
+
 .reposTable tr:nth-child(odd) {
   background-color: #fff;
 }
