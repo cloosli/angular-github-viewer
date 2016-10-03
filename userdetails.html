@@ -16,7 +16,7 @@
     <option value="+language">Language</option>
     <option value="-created_at">Created</option>
   </select>
-  <table>
+  <table class="reposTable">
     <thead>
       <tr>
         <th>Name</th>
@@ -28,7 +28,7 @@
     <tbody>
       <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
         <td>{{ repo.name }}</td>
-        <td>{{ repo.stargazers_count | number }}</td>
+        <td style="text-align:right;">{{ repo.stargazers_count | number }}</td>
         <td>{{ repo.language }}</td>
         <td>{{ repo.created_at | date }}</td>
       </tr>
