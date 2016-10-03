@@ -19,6 +19,13 @@
     var onError = function(reason) {
       $scope.error = "Could not fetch user";
     };
+    
+    var decrementCountdown = function() {
+      $scope.countdown -= 1;
+      if ($scope.countdown < 1) {
+        $scope.search($scope.username);
+      }
+    };
 
     $scope.search = function(username) {
       $scope.error = "";
@@ -29,6 +36,8 @@
     $scope.username = "angular";
     $scope.message = "GitHub Viewer";
     $scope.repoSortOrder = "-stargazers_count";
+    $scope.countdown = 5;
+    
   };
 
   app.controller('MainController', ["$scope", "$http", MainController]);
