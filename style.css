@@ -89,3 +89,8 @@ table.reposTable tr:hover {
   color: white;
   background-color: #4078c0;
 }
+
+.userAvatar {
+  width: 80px;
+  border-radius: 50%;
+}

@@ -19,6 +19,6 @@
       .then(onRepo, onError);
 
   };
-
+  
   module.controller('RepoController', RepoController);
 })();

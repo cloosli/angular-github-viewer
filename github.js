@@ -25,6 +25,7 @@
       return $http.get(repoUrl)
         .then(function(response) {
           repo = response.data;
+          console.log(repoUrl + "/contributors");
           return $http.get(repoUrl + "/contributors");
         })
         .then(function(response) {
