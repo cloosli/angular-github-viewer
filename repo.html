@@ -1,14 +1,14 @@
 <div class="repo">
   <div>
-    <a href="#/main">Back to search</a>
+    <a href="#!/main">Back to search</a>
   </div>
 
   {{ error }}
   <h2>{{repo.name}}</h2>
   <h4>{{repo.description}}</h4>
-  
+
   <code>git clone {{repo.ssh_url}}</code>
-  
+
   <a ng-href="{{repo.html_url}}" target="_blank">Go to github.com/{{repo.full_name}}</a>
 
   <div>Issues: {{ repo.open_issues_count }}</div>
@@ -24,7 +24,7 @@
   </div>
 
   <div>
-    <a href="#/main">Back to search</a>
+    <a href="#!/main">Back to search</a>
     <a ng-href="#!/user/{{repo.owner.login}}">Back to {{repo.owner.login}}</a>
   </div>
 </div>

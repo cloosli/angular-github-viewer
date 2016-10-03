@@ -24,6 +24,11 @@ h1 {
   color: #4078c0;
 }
 
+h1 > a {
+  text-decoration: none;
+  color: #4078c0;
+}
+
 .container {
   width: 80%;
   margin: auto;
